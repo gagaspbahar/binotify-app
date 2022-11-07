@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+a.detail {
+  color: #fff;
+}
+
+.homepage {
+  background-color: #212121;
+  /* height: 100vh; */
+  display: flex;
+  overflow: hidden;
+}
+
+.side-navbar-container {
+  background-color: #121212;
+  width: 20%;
+}
+
+.albumpage-container {
+  width: 80%;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.logo {
+  height: 50px;
+  margin: 30px;
+}
+
+hr.rounded {
+  border-top: 1px solid #b3b3b3;
+  margin-bottom: 10px;
+  background: #b3b3b3;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.navbar {
+  margin-left: 25px;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+.navbar ul li a {
+  font-size: 15px;
+  margin-left: 2px;
+  color: #b3b3b3;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.fas {
+  color: #b3b3b3;
+  height: 20px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+/* ALBUM LIST */
+.album-container {
+  padding: 20px;
+  color: white;
+  max-height: max-content;
+}
+
+.album-container h1 {
+  padding-left: 30px;
+  color: white;
+}
+
+.grid-item:hover {
+  background-color: #282828;
+}
+
+.grid-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  grid-auto-rows: 330px;
+  row-gap: 50px;
+  column-gap: 50px;
+  justify-content: space-evenly;
+  max-height: max-content;
+}
+
+.grid-item {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  background-color: #171717;
+}
+
+.grid-item .album-image {
+  width: 180px;
+  height: 180px;
+}
+
+.grid-item .album-title {
+  margin-top: 8px;
+  font-size: 20px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-image img {
+  width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+.album-singer,
+.album-year,
+.album-genre {
+  color: #a7a7a7;
+}
+
+ul {
+  list-style-type: none;
+}
+@media only screen and (max-width: 1300px) {
+  .grid-container {
+    grid-template-columns: 220px 220px 220px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .grid-container {
+    grid-template-columns: 220px 220px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .grid-container {
+    grid-template-columns: 220px;
+  }
+}

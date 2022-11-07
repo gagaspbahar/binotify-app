@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.main-container {
+  min-height: 100vh;
+}
+
+.homepage {
+  background-color: #212121;
+  display: flex;
+  overflow: hidden;
+}
+
+.side-navbar-container {
+  background-color: #121212;
+  width: 20%;
+  min-height: 100vh;
+}
+
+.detail-album-container {
+  width: 80%;
+  min-height: 100vh;
+  background-color: #212121;
+  padding: 20px;
+  color: white;
+}
+
+/* NAVBAR */
+.logo {
+  height: 50px;
+  margin: 30px;
+}
+
+hr.rounded {
+  border-top: 1px solid #b3b3b3;
+  margin-bottom: 10px;
+  background: #b3b3b3;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.navbar {
+  margin-left: 25px;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+.navbar ul li a {
+  font-size: 15px;
+  margin-left: 2px;
+  color: #b3b3b3;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.fas {
+  color: #b3b3b3;
+  height: 20px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+/* SONG LIST */
+.album-info-container {
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.album-photo {
+  width: 280px;
+  height: 280px;
+  margin-right: 50px;
+}
+
+.album-photo img {
+  width: 100%;
+}
+
+.album-info {
+  justify-content: center;
+}
+
+.button-select {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.song-details .input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.song-details .input-box {
+  margin-top: 10px;
+}
+
+.song-details .input-box input:focus,
+.song-details .input-box input:valid {
+  border-color: #1db954;
+}
+
+form .button input {
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+form .save input {
+  background: #1db954;
+}
+
+form .cancel input {
+  background: #6d6464;
+}
+
+form .save input:hover {
+  background: #17e760;
+}
+
+form .cancel input:hover {
+  background: red;
+}
+
+.button button {
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+.save button {
+  background: #1db954;
+}
+
+.cancel button {
+  background: #6d6464;
+}
+
+.save button:hover {
+  background: #17e760;
+}
+
+.cancel button:hover {
+  background: red;
+}
+
+@media (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  form .song-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category {
+    width: 100%;
+  }
+  .content form .song-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .song-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+@media (max-width: 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}
+
+.content p {
+  background-color: aqua;
+}

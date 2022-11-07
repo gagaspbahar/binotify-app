@@ -1,0 +1,112 @@
+body {
+  background-color: #121212;
+  color: white;
+}
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-container img {
+  width: 150px;
+}
+.username-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-form input {
+  padding: 20px 15px;
+  background-color: #212121;
+  border: none;
+  color: white;
+}
+
+.login-input {
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+}
+
+.login-button {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 15px;
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+}
+
+.header-title {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.header-subtitle {
+  margin-bottom: 10px;
+  font-weight: 200;
+}
+
+.login-error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.signup-text {
+  color: #1db954;
+}
+
+.signup-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup {
+  color: #939393;
+  font-weight: 200;
+}
+
+.guest-button {
+  width: 200px;
+  border-radius: 22px;
+  padding: 10px 15px;
+  background-color: #8b8b8b;
+  border: none;
+  cursor: pointer;
+  justify-self: flex-end;
+}
+
+.guest-button:hover {
+  background-color: #f1f1f1;
+}
+
+.line {
+  position: relative;
+  height: 1px;
+  width: 25%;
+  margin: 30px 0;
+  background-color: #d4d4d4;
+}
+
+.line::before {
+  content: "OR";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  color: #8b8b8b;
+  padding: 0 15px;
+}

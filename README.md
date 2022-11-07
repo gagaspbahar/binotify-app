@@ -1,92 +1,123 @@
-# binotify-app
+6. Buatlah file README yang berisi:
+   - Deskripsi aplikasi web
+   - Daftar requirement
+   - Cara instalasi
+   - Cara menjalankan server
+   - Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan
+   - Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
 
+# Deskripsi aplikasi web
 
+Aplikasi ini adalah aplikasi web sederhana yang dapat digunakan untuk mendengar lagu serta melihat album dengan mengambil contoh dari Spotify. Aplikasi web ini dibuat dalam PHP, HTML, CSS, dan JS tanpa framework, dengan mengutilisasikan XHR sebagai Ajax. Database dari web ini terdapat di awan dengan menggunakan PostgreSQL. Aplikasi ini dibuat untuk memenuhi tugas besar mata kuliah Pemrograman Aplikasi Berbasis Web.
 
-## Getting started
+# Daftar requirement
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+# Cara instalasi
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+1. Clone repository ini
+2. Install XAMPP or Docker
 
-## Add your files
+# Cara menjalankan server
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### XAMPP
 
-```
-cd existing_repo
-git remote add origin https://gitlab.informatika.org/f3110-2022-k01-02-28/binotify-app.git
-git branch -M main
-git push -uf origin main
-```
+Pindahkan isi dari repository ini ke htdocs pada XAMPP. Konfigurasi database dapat dilihat pada config/.env .
 
-## Integrate with your tools
+### Docker
 
-- [ ] [Set up project integrations](https://gitlab.informatika.org/f3110-2022-k01-02-28/binotify-app/-/settings/integrations)
+`docker compose up`
 
-## Collaborate with your team
+# Screenshot tampilan aplikasi
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Login Page
 
-## Test and Deploy
+![](screenshots/20221028142714.png)
 
-Use the built-in continuous integration in GitLab.
+### Register Page
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+![](screenshots/20221028144314.png)  
 
-***
+### Home Page
 
-# Editing this README
+![](screenshots/20221028144337.png)  
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Search, Sort, Filter Page
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+![](screenshots/20221028144543.png)  
 
-## Name
-Choose a self-explaining name for your project.
+### Daftar Album Page
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+![](screenshots/20221028144604.png)  
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Detail Album Page
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+![](screenshots/20221028144626.png)  
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### Detail Lagu Page
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+![](screenshots/20221028144700.png)  
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Edit Album
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+![](screenshots/20221028144756.png)  
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+![](screenshots/20221028144822.png)  
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+![](screenshots/20221028144848.png)  
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### Edit Lagu
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+![](screenshots/20221028144935.png)  
 
-## License
-For open source projects, say how it is licensed.
+### Tambah Album
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+![](screenshots/20221028144949.png)  
+
+### Tambah Lagu
+
+![](screenshots/20221028145002.png)  
+
+### Daftar User
+
+![](screenshots/20221028145102.png)  
+
+### 404 Page
+
+![](screenshots/20221028145125.png)  
+
+# Pembagian tugas
+## Frontend / Client-side
+
+1. Login: 13520016, 13520073
+2. Register: 13520016, 13520073
+3. Home: 13520073
+4. Daftar Album: 13520076
+5. Search, Sort, Filter: 13520016, 13520073
+6. Detail Lagu: 13520073
+7. Detail Album: 13520076
+8. Edit Lagu: 13520073
+9. Edit Album: 13520076
+10. Tambah Album: 13520076
+11. Tambah Lagu: 13520073
+12. Daftar User: 13520073
+13. 404 : 13520076
+14. Navbar: 13520073
+15. Responsive Adjustments: 13520073, 13520076
+16. Global Styling: 13520016
+17. Initial Design: 13520073, 13520076
+
+## Backend / Server-side
+
+1. Auth (Login, Register, Logout): 13520016
+2. Guest & Limiting: 13520016, 13520076
+3. Home: 13520073
+4. Search, Sort, Filter: 13520016
+5. Detail Lagu: 13520073
+6. Detail Album: 13520076
+7. Daftar Album: 13520076
+8. Edit Lagu: 13520016, 13520073
+9. Edit Album: 13520016
+10. Tambah Album: 13520016
+11. Tambah Lagu: 13520016
+12. Daftar User: 13520073
+13. Initial Project, Database & Docker Setup: 13520016

@@ -1,0 +1,46 @@
+body {
+  background-color: #212121;
+  color: white;
+  justify-content: center;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+.not-found-pic {
+  width: 250px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+  margin: 25px 0;
+}
+
+button {
+  background-color: #212121;
+  color: white;
+  border-color: white;
+  border-width: 1px;
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #1db954;
+  border-width: 0px;
+}
+
+a {
+  color: #fff;
+}

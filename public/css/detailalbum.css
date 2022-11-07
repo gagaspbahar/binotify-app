@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.main-container {
+  min-height: 100vh;
+}
+
+.homepage {
+  background-color: #212121;
+  display: flex;
+  overflow: hidden;
+}
+
+.side-navbar-container {
+  background-color: #121212;
+  width: 20%;
+  min-height: 100vh;
+}
+
+.detailalbum-container {
+  width: 80%;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.logo {
+  height: 50px;
+  margin: 30px;
+}
+
+hr.rounded {
+  border-top: 1px solid #b3b3b3;
+  margin-bottom: 10px;
+  background: #b3b3b3;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.navbar {
+  margin-left: 25px;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+.navbar ul li a {
+  font-size: 15px;
+  margin-left: 2px;
+  color: #b3b3b3;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.fas {
+  color: #b3b3b3;
+  height: 20px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+/* SONG LIST */
+.detailalbum-container {
+  padding: 20px;
+  color: white;
+}
+
+.albuminfo-container {
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: green;*/
+}
+
+.album-info {
+  /*background-color: aqua;*/
+  justify-content: center;
+}
+
+.album-settings {
+  /*background-color: #b3b3b3;*/
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.albuminfo-container .album-photo img {
+  width: 30%;
+  background-color: black;
+}
+
+.albuminfo-container .album-photo img {
+  width: 250px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.albuminfo-container .album-info ul {
+  list-style-type: none;
+}
+
+.albuminfo-container .album-info {
+  padding-left: 50px;
+  width: 70%;
+}
+
+.album-title {
+  font-size: 50px;
+  word-wrap: break-word;
+}
+
+.album-duration {
+  color: #939393;
+}
+
+.previous-button {
+  background-color: #f1f1f1;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1px 18px;
+  border-radius: 50%;
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.previous-button:hover {
+  background-color: #1ed760;
+  color: black;
+  box-shadow: 3px 1px 1px black;
+}
+
+.album-settings {
+  align-items: flex-start;
+  display: flex;
+}
+
+.song-container {
+  padding: 20px;
+  color: white;
+}
+
+.songlist {
+  padding: 0;
+}
+
+.songlist-row {
+  height: 80px;
+  padding: 15px 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.songlist-row:hover {
+  background-color: #282828;
+  border-radius: 5px;
+}
+
+.songlist-row span {
+  color: #939393;
+  font-weight: 200;
+}
+
+.songlist-row .song-count {
+  width: 5%;
+  align-self: center;
+  float: left;
+}
+
+.songlist-row .song-count img {
+  width: 20px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.songlist-row:hover .song-count img {
+  visibility: visible;
+}
+
+.songlist-row .song-count span {
+  visibility: visible;
+}
+
+.songlist-row:hover .song-count span {
+  visibility: hidden;
+}
+
+.songlist-row .song-image {
+  margin: 10px;
+  width: 10%;
+  float: left;
+}
+
+.songlist-row .song-image img {
+  max-width: 100%;
+}
+
+.songlist-row .song-info {
+  width: 75%;
+  float: left;
+}
+
+.songlist-row .song-info span {
+  display: block;
+}
+
+.songlist-row .song-info .song-title {
+  color: #fff;
+}
+
+.songlist-row .song-releasedate {
+  width: 15%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .song-genre {
+  width: 12%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .trackOptions {
+  width: 5%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .trackOptions img {
+  width: 15px;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.songlist-row:hover .trackOptions img {
+  visibility: visible;
+}
+
+.button {
+  color: white;
+  padding: 8px 13px;
+  margin: 5px;
+  font-size: 13px;
+  border-radius: 15px;
+  border-style: none;
+  background: #212121;
+  border-width: 1px;
+  border-color: white;
+  border-style: solid;
+}
+
+.delete-button:hover,
+.delete-song-button:hover {
+  background: red;
+  color: white;
+  border-width: 0px;
+}
+.edit-button:hover,
+.add-button:hover {
+  background: #1ed760;
+  color: white;
+  border-width: 0px;
+}
+
+a.detail {
+  color: #fff;
+}
+
+.done-button {
+  margin: auto;
+}

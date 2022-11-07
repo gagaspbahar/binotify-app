@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  php-apache:
+    image: php:8.0-apache
+    ports:
+      - 8000:80
+    volumes:
+      - .:/var/www/html
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - UPLOAD_LIMIT=10M
