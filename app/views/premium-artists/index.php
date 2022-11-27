@@ -60,7 +60,7 @@ include_once 'app/core/Database.php';
                                     <tr>
                                         <th>3</th>
                                         <th>Tulus</th>
-                                        <th><button class="button listen-button">Listen Now</button></th>
+                                        <th><a class="button listen-button" href='/?premiumsongs'>Listen Now</button></th>
                                     </tr>
                                     <tr>
                                         <th>4</th>
