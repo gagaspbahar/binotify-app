@@ -1,0 +1,633 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.homepage {
+  background-color: #212121;
+  /* height: 100vh; */
+  min-height: 140vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.side-navbar-container {
+  background-color: #121212;
+  width: 20%;
+}
+
+.homepage-container {
+  width: 80%;
+}
+
+/* NAVBAR */
+.logo {
+  height: 50px;
+  margin: 30px;
+}
+
+hr.rounded {
+  border-top: 1px solid #b3b3b3;
+  margin-bottom: 10px;
+  background: #b3b3b3;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.navbar {
+  margin-left: 25px;
+  color: #b3b3b3;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+.navbar ul li a {
+  font-size: 15px;
+  margin-left: 2px;
+  color: #b3b3b3;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.fas {
+  color: #b3b3b3;
+  height: 20px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+/* username di kanan */
+.profile-navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.profile-navbar h1.user {
+  margin-top: 12px;
+  font-size: 25px;
+  color: white;
+  float: right;
+}
+
+.profile-navbar h2.username {
+  margin-top: 10px;
+  margin-left: 3px;
+  color: white;
+  text-decoration: underline solid #1DB954 3px;
+}
+
+.profile-navbar .fa{
+  color: white;
+  height: 10px;
+  font-size: 25px;
+  padding-right: 10px;
+  margin-left: 8px;
+}
+
+
+/* SONG LIST */
+.song-container {
+  padding: 20px;
+  color: white;
+}
+
+.title {
+    text-align: left;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.songlist {
+    margin-left: 40px;
+    margin-right: 40px;
+    /* padding: 0; */
+}
+
+.songlist-row {
+  height: 55px;
+  padding: 15px 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.songlist-row:hover {
+  background-color: #282828;
+  border-radius: 5px;
+}
+
+.songlist-row span {
+  color: #939393;
+  font-weight: 200;
+}
+
+.songlist-row .song-count {
+  width: 5%;
+  align-self: center;
+  float: left;
+}
+
+.songlist-row .song-count img {
+  width: 20px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.songlist-row:hover .song-count img {
+  visibility: visible;
+}
+
+.songlist-row .song-count span {
+  visibility: visible;
+}
+
+.songlist-row:hover .song-count span {
+  visibility: hidden;
+}
+
+.songlist-row .song-info {
+  width: 75%;
+  float: left;
+}
+
+.songlist-row .song-info span {
+  display: block;
+}
+
+.songlist-row .song-info .song-title a.detail {
+  color: #fff;
+}
+
+a.detail {
+  color: #fff;
+}
+
+a.detail:hover {
+  text-decoration: underline;
+}
+
+.songlist-row .song-releasedate {
+  width: 15%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .trackOptions {
+  width: 5%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .trackOptions img {
+  width: 15px;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.songlist-row:hover .trackOptions img {
+  visibility: visible;
+}
+.songlist-header {
+  height: 40px;
+  padding: 15px 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.8px solid #939393;
+}
+
+.songlist-header span {
+  color: #939393;
+  font-weight: 200;
+}
+
+.songlist-header .song-count {
+  width: 5%;
+  align-self: center;
+  float: left;
+}
+
+.songlist-header .song-count img {
+  width: 20px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.songlist-header .song-info {
+  width: 75%;
+  float: left;
+}
+
+.songlist-header .song-releasedate {
+  width: 15%;
+  float: center;
+  text-align: center;
+}
+
+.songlist-header .song-genre {
+  width: 12%;
+  float: center;
+  text-align: center;
+}
+
+#song-player-container {
+  width: 100%;
+  background-color: #282828;
+  position: fixed;
+  bottom: 0;
+  min-width: 620px;
+}
+
+#song-player-bar {
+  display: flex;
+  height: 100px;
+  padding: 16px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+#songplayer-left, 
+#songplayer-right {
+  width: 30%;
+  min-width: 180px;
+}
+
+#songplayer-right {
+  position: relative;
+  margin-top: 16px;
+}
+
+/* SONG PLAYER BAR CENTER */
+#songplayer-center {
+  width: 40%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#song-player-bar .content {
+  height: 100%;
+  width: 100%;
+}
+
+.playerControls .buttons {
+  margin: 0 auto;
+  display: table;
+}
+
+.controlButton {
+  background-color: transparent;
+  border: none;
+  vertical-align: middle;
+}
+
+.controlButton:hover {
+  cursor: pointer;
+}
+
+.controlButton:focus {
+  outline: none;
+}
+
+.controlButton.play img,
+.controlButton.pause img {
+  width: 32px;
+  height: 32px;
+}
+
+.songlist-row .song-count .controlButton.play.list img,
+.songlist-row .song-count .controlButton.pause.list img {
+  width: 20px;
+  height: 20px;
+}
+
+
+#song-player-bar .fas{
+  color: #b3b3b3;
+  /* height: 5px; */
+  padding-right: 12px;
+  padding-left: 12px;
+  cursor: pointer;
+}
+
+#song-player-bar .fas:hover{
+  color: white;
+}
+
+
+.pause {
+  display: none;
+}
+
+.playbackBar {
+  display: flex;
+}
+
+.progressTime {
+  color: #a0a0a0;
+  font-size: 12px;
+  min-width: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.progressBar {
+  display: inline-flex;
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.progressBarBG {
+  background-color: #404040;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.progress {
+  background-color: #a0a0a0;
+  height: 4px;
+  width: 0; /* DYNAMIC */
+  border-radius: 2px;
+}
+
+/* SONG PLAYER BAR LEFT */
+#songplayer-left .album-img {
+  height: 100%;
+  max-width: 65px;
+  margin-right: 15px;
+  float: left;
+  background-size: cover;
+}
+
+#songplayer-left .trackInfo {
+  display: table;
+}
+
+#songplayer-left .trackInfo .trackName {
+  margin-top: 12px;
+  font-size: 15px;
+  display: inline-block;
+  width: 100%;
+  color: white;
+}
+
+#songplayer-left .trackInfo .artistName span {
+  margin-top: 0;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+/* SONG PLAYER BAR RIGHT */
+.volumeBar {
+  width: 180px;
+  position: absolute;
+  right: 0;
+}
+
+.volumeBar .progressBar {
+  width: 125px;
+}
+
+
+/* SONG LIST */
+.song-container {
+    padding: 20px;
+    color: white;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+  }
+  
+.left {
+    width: 35%;
+}
+  
+.right {
+    width: 65%;
+}
+
+.songlist {
+    margin-left: 40px;
+    margin-right: 40px;
+    /* padding: 0; */
+}
+
+.songlist-row {
+  height: 55px;
+  padding: 15px 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.songlist-row:hover {
+  background-color: #282828;
+  border-radius: 5px;
+}
+
+.songlist-row span {
+  color: #939393;
+  font-weight: 200;
+}
+
+.songlist-row .song-count {
+  width: 5%;
+  align-self: center;
+  float: left;
+}
+
+.songlist-row .song-count img {
+  width: 20px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.songlist-row:hover .song-count img {
+  visibility: visible;
+}
+
+.songlist-row .song-count span {
+  visibility: visible;
+}
+
+.songlist-row:hover .song-count span {
+  visibility: hidden;
+}
+
+.songlist-row .song-info {
+  width: 75%;
+  float: left;
+}
+
+.songlist-row .song-info span {
+  display: block;
+}
+
+.songlist-row .song-info .song-title a.detail {
+  color: #fff;
+}
+
+a.detail {
+  color: #fff;
+}
+
+a.detail:hover {
+  text-decoration: underline;
+}
+
+.songlist-row .song-releasedate {
+  width: 15%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .trackOptions {
+  width: 5%;
+  float: left;
+  text-align: right;
+}
+
+.songlist-row .trackOptions img {
+  width: 15px;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.songlist-row:hover .trackOptions img {
+  visibility: visible;
+}
+.songlist-header {
+  height: 40px;
+  padding: 15px 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.8px solid #939393;
+}
+
+.songlist-header span {
+  color: #939393;
+  font-weight: 200;
+}
+
+.songlist-header .song-count {
+  width: 5%;
+  align-self: center;
+  float: left;
+}
+
+.songlist-header .song-count img {
+  width: 20px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.songlist-header .song-info {
+  width: 75%;
+  float: left;
+}
+
+.songlist-header .song-releasedate {
+  width: 15%;
+  float: center;
+  text-align: center;
+}
+
+.songlist-header .song-genre {
+  width: 12%;
+  float: center;
+  text-align: center;
+}
+
+/* .songlist-row .song-image-detail {
+    margin: 30px;
+    width: 85%;
+    float: left;
+    display: flex;
+    justify-content: center;
+}
+
+.songlist-row .song-image-detail img {
+    max-width: 100%;
+}
+
+.songlist-row .song-info {
+    width: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.songlist-row .song-info span {
+    display: block;
+}
+
+.songlist-row .song-info .song-title {
+    color: #FFF;
+    font-size: 20px;
+}
+
+.songlist-row .song-info .singer {
+    padding-bottom: 50px;
+}
+
+.songlist-row .song-info .song-album{
+    padding-bottom: 40px;
+}
+
+.songlist-row .song-info .song-album a{
+    color: white;
+} */
+
+/* .songlist-row .song-info .song-album a:hover{
+    text-decoration: underline;
+}
+
+
+.songlist-row .song-info .release-date {
+    padding-bottom: 5px;
+}
+
+.songlist-row .song-info .fa {
+    padding-right: 5px;
+}
+
+.songlist-row .song-info .genre {
+    font-size: 15px;
+} */
