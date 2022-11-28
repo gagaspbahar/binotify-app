@@ -48,11 +48,11 @@ include_once 'app/core/Database.php';
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>1</th>
-                                        <th>New Jeans</th>
+                                        <th id="artist-no">1</th>
+                                        <th id="artist-name">Loading artists...</th>
                                         <th><button class="button subscribe-button">Subscribe</button></th>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <th>2</th>
                                         <th>keshi</th>
                                         <th><button class="button subscribe-button">Subscribe</button></th>
@@ -66,7 +66,7 @@ include_once 'app/core/Database.php';
                                         <th>4</th>
                                         <th>Yura Yunita</th>
                                         <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                                 <!-- <?php
                                 $db = new Database;
@@ -93,6 +93,8 @@ include_once 'app/core/Database.php';
             </div>
         </div>
     </div>
+    <script src="../../../public/js/premiumartists.js"></script>
+    <script>getPremiumArtistList()</script>
 </body>
 
 </html>
