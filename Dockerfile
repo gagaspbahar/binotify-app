@@ -1,4 +1,7 @@
 FROM php:8.0-apache
+
+RUN rm -rf /var/www/html
+
 COPY . /var/www/html
 
 RUN apt-get update
@@ -18,3 +21,5 @@ RUN apt-get install -y mp3info
 RUN apt-get install -y ffmpeg
 
 RUN service apache2 restart
+
+# CMD ["php", "-S". "0.0.0.0:8000"]

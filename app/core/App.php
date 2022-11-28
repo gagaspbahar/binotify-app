@@ -1,7 +1,7 @@
 <?php
 
 class App {
-  protected $controller = 'Home';
+  protected $controller = 'home';
   protected $method = 'index';
   protected $params = [];
 
@@ -10,7 +10,7 @@ class App {
   {
     $url = $this->parse_url();
     if ((!isset($_SESSION['username']) && !isset($_COOKIE['GUEST'])) && $url[0] != 'register'){
-      $this->controller = 'Login';
+      $this->controller = 'login';
     }
     else {
       // var_dump($url);
@@ -19,10 +19,10 @@ class App {
         unset($url[0]);
       }
       else if ($url[0] == '') {
-        $this->controller = 'Home';
+        $this->controller = 'home';
       }
       else {
-        $this->controller = 'Error404';
+        $this->controller = 'error404';
       }
     }
     require_once 'app/controllers/' . $this->controller . '.php';
