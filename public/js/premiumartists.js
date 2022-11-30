@@ -2,8 +2,6 @@ const getPremiumArtistList = (id) => {
   const xhr = new XMLHttpRequest();
   xhr.open("GET", "http://localhost:8080/api/artist?page=1", true);
 
-  // xhr.setRequestHeader("header", "Authorization")
-
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       document.getElementById("universal-loading").innerHTML = "";
@@ -72,13 +70,16 @@ const getSubscriptionStatus = (id) => {
           response.forEach((data) => {
             if (artist.user_id == data.creator_id) {
               if (data.status == "ACCEPTED") {
+                // listen
                 artist.flag = 1;
               } else {
+                // pending
                 artist.flag = 2;
                 artist.status = data.status;
               }
             } else {
               if (artist.flag != 1 && artist.flag != 2) {
+                // subscribe
                 artist.flag = 0;
               }
             }
@@ -88,7 +89,7 @@ const getSubscriptionStatus = (id) => {
                     <tr>
                         <th id="artist-no">${count}</th>
                         <th id="artist-name">${artist.name}</th>
-                        <th> <button class="button listen-button" id="listen-button" onClick="location.href='/?premium-songs/${artist.user_id}'">   Listen now   </button></th>
+                        <th> <button class="button listen-button" id="listen-button" onClick="location.href='/?premiumsongs/${artist.user_id}'">   Listen now   </button></th>
                     </tr>
                 `;
             count++;
@@ -97,7 +98,7 @@ const getSubscriptionStatus = (id) => {
                     <tr>
                         <th id="artist-no">${count}</th>
                         <th id="artist-name">${artist.name}</th>
-                        <th><button class="button listen-button" id="listen-button" disabled=true>${artist.status}</button></th>
+                        <th><button class="button rejected-button" id="rejected-button" disabled=true>${artist.status}</button></th>
                     </tr>
                 `;
             count++;

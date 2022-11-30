@@ -45,6 +45,9 @@
                     <div class="song-container">
                         <h1 class="title"> Songs by Tulus </h1>
 
+                        <button class="previous-button" type="button" onclick=prevPage()><i class="fa fa-angle-left"></i></button>
+                        <button type="button" class="next-button" onclick=nextPage()><i class="fa fa-angle-right"></i></button>
+
                         <div class="songlist-container">
 
                             <ul class="songlist">
@@ -57,60 +60,13 @@
                                         <span class='song-title'> Title </span>
                                     </div>
 
-                                    <div class='song-releasedate'>
-                                        <span class='release-date'>Duration</span>
-                                    </div>
-
-                                    <!-- <div class='song-genre'>
-                                        <span class='genre'>Genre</span>
-                                    </div> -->
-
                                     <div class='trackOptions'>
                                         <!-- <img class='optionButton' src='../../../public/img/more.png'> -->
                                     </div>
                                 </li>
-                                <?php 
-                                    $db = new Database;
-                                    $query = "SELECT * FROM (SELECT * FROM songs ORDER BY song_id DESC LIMIT 10)top ORDER BY LOWER(judul) ASC";
-                                    $db->query($query);
-                                    $songs = $db->resultSet();
 
-                                    $count = 1;
-                                    foreach ($songs as $song) {
-                                        $song_id = $song['song_id'];
-                                        $date = date("d/m/Y", strtotime($song['tanggal_terbit']));
-                                        echo "  
-                                            <li class='songlist-row'>
-                                                <div class='song-count'>
-                                                    
-                                                    <button class='controlButton play list' title='Play' onclick='playSong();'>
-                                                        <img src='../../../public/img/play-white.png'>
-                                                    </button>
+                                <div id="songlist"></div>
 
-                                                    <button class='controlButton pause list' title='Pause' onclick='pauseSong();'>
-                                                        <img src='../../../public/img/pause-white.png'>
-                                                    </button>
-                                                 
-                                                    <span class='song-number'> $count</span>
-                                                </div>
-                
-                                                <div class='song-info'>
-                                                    
-                                                    <span class='song-title'>$song[judul]</span>
-                                                    
-                                                </div>
-                
-                                                <div class='song-releasedate'>
-                                                    <span class='release-date'>$date</span>
-                                                </div>
-                
-                                                <div class='trackOptions'>
-                                                    <img class='optionButton' src='../../../public/img/more.png'>
-                                                </div>
-                                            </li>";
-                                        $count++;
-                                    }
-                                ?>
                             </ul>
                         </div>
                     </div>
@@ -121,16 +77,11 @@
                 <div id="song-player-bar">
                     <div id="songplayer-left">
                         <div class="content">
-                            <!-- <span class="album-image">
-                                <img id="song-album-image" src="../../../public/img/binomify-logo.png" alt="album" class="album-img">
-                            </span> -->
+                   
                             <div class="trackInfo">
                                 <span class="trackName pointer">
                                     <p class="song-track-title"> No Song Chosen.. </p>
                                 </span>
-                                <!-- <span class="artistName pointer">
-                                    <span class="song-track-artist"> loading artist..</span>
-                                </span> -->
                             </div>
                         </div>
 
@@ -147,7 +98,7 @@
                                     <i class="fas fa-step-backward"></i>
                                 </button>
 
-                                <button class="controlButton play" title="Play" onclick="playSong(isGuest);">
+                                <button class="controlButton play" title="Play" onclick="playSong();">
                                     <img src="../../../public/img/play.png" alt="Play">
                                 </button>
 
@@ -190,9 +141,9 @@
             </div>
         </div>
 
-        <script src="../../../public/js/songdetail.js"></script>
+        <script src="../../../public/js/premiumsongs.js"></script>
         <script>
-            getPremiumSongs(<?php echo $data['id']?>);
+            getPremiumSongs(<?php echo $_SESSION['user_id']?>);
             // getSongDetail(<?php echo $data['id'] ?>);
         </script>
     </body>

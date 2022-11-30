@@ -8,12 +8,12 @@ function playSong() {
     track.play();
     playButton.style.display = "none";
     pauseButton.style.display = "inline";
-  }
+}
 
 function pauseSong() {
-  track.pause();
-  playButton.style.display = "inline";
-  pauseButton.style.display = "none";
+    track.pause();
+    playButton.style.display = "inline";
+    pauseButton.style.display = "none";
 }
 
 let currentStart = document.getElementById("currentStart");
@@ -46,11 +46,21 @@ seek.addEventListener("change", () => {
   track.currentTime = (seek.value * track.duration) / 100;
 });
 
-const getPremiumSongs = (artist_id, user_id) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8080/api/artist/song"+artist_id+"user_id="+user_id+"&page=1", true);
-    // xhr.open("GET", "http://localhost:8080/api/artist/song/2?user_id=6&page=1", true);
+function getArtistsId () {
+    let url = window.location.href;
+    let urlSplit = url.split("/");
+    let artistId = urlSplit[urlSplit.length - 1];
+    return artistId;
+}
 
+const getPremiumSongs = (user_id) => {
+    let artist_id = getArtistsId();
+    console.log(artist_id);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8080/api/artist/song/"+artist_id+"?user_id="+user_id+"&page=1", true);
+    // xhr.open("GET", "http://localhost:8080/api/artist/song/2?user_id=6&page=1", true);
+    console.log(user_id);
     try {
         document.getElementById("universal-loading").innerHTML = "Loading...";
     } catch {
@@ -74,8 +84,6 @@ const getPremiumSongs = (artist_id, user_id) => {
             let songList = document.getElementById("songlist");
             songList.innerHTML = "";
 
-        
-
             let count = 1;
             songs.forEach((song) => {
                 const xhr2 = new XMLHttpRequest();
@@ -84,11 +92,11 @@ const getPremiumSongs = (artist_id, user_id) => {
                     track.src = this.responseText;
                 }
                 xhr2.send();
-                console.log(song.audio_path)
-                console.log(song);
+                // console.log(song.audio_path)
                 songList.innerHTML += `
                 <li class='songlist-row'>
                     <div class='song-count'>
+
                         <button class='controlButton play list' title='Play' onclick='playSong();'>
                             <img src='../../../public/img/play-white.png'>
                         </button>
@@ -120,3 +128,36 @@ const getPremiumSongs = (artist_id, user_id) => {
     };
     xhr.send();
 }
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (decodeURIComponent(pair[0]) == variable) {
+        return decodeURIComponent(pair[1]);
+      }
+    }
+    console.log("Query variable %s not found", variable);
+  }
+  
+  function updateQueryStringParameter(uri, key, value) {
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+    if (uri.match(re)) {
+      return uri.replace(re, "$1" + key + "=" + value + "$2");
+    } else {
+      return uri + separator + key + "=" + value;
+    }
+  }
+
+const prevPage = () => {
+    let newPage = parseInt(getQueryVariable("page")) - 1;
+
+  
+};
+  
+  const nextPage = () => {
+    let newPage = parseInt(getQueryVariable("page")) + 1;
+
+};

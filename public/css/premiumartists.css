@@ -112,6 +112,10 @@ td {
     background-color: #1DB954;
 }
 
+.rejected-button {
+  background-color: #1DB954;
+}
+
 .subscribe-button:hover {
     background-color: #FF0052;
 }
