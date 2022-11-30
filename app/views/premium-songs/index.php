@@ -192,6 +192,7 @@
 
         <script src="../../../public/js/songdetail.js"></script>
         <script>
+            getPremiumSongs(<?php echo $data['id']?>);
             // getSongDetail(<?php echo $data['id'] ?>);
         </script>
     </body>
