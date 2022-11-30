@@ -30,7 +30,7 @@ include_once 'app/core/Database.php';
 
             <div class="homepage-container">
                 <nav class="profile-navbar">
-                    <h1 class="user"> Hello, <h2 class="username"><?php echo (isset($_SESSION['is_admin']) ? $_SESSION['username'] : "Guest");?> </h2> <i class="fa fa-user"></i> </h1>
+                    <h1 class="user"> Hello, <h2 class="username"><?php echo (isset($_SESSION['is_admin']) ? $_SESSION['username'] : "Guest"); ?> </h2> <i class="fa fa-user"></i> </h1>
                 </nav>
 
                 <div class="song-container">
@@ -46,46 +46,10 @@ include_once 'app/core/Database.php';
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th id="artist-no">1</th>
-                                        <th id="artist-name">Loading artists...</th>
-                                        <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr>
-                                    <!-- <tr>
-                                        <th>2</th>
-                                        <th>keshi</th>
-                                        <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <th>Tulus</th>
-                                        <th><a class="button listen-button" href='/?premiumsongs'>Listen Now</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>4</th>
-                                        <th>Yura Yunita</th>
-                                        <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr> -->
+
+                                <tbody id="artists-table-body">
+
                                 </tbody>
-                                <!-- <?php
-                                $db = new Database;
-                                $query = "SELECT * FROM users";
-                                $db->query($query);
-                                $users = $db->resultSet();
-                                $count = 1;
-                                foreach ($users as $user) {
-                                    echo "  <tbody>
-                                                        <tr>
-                                                            <td> $count. </td>
-                                                            <td> $user[username] </td>
-                                                            <td>$user[email] </td>
-                                                        </tr>
-                                                    </tbody>
-                                                ";
-                                    $count++;
-                                }
-                                ?> -->
                             </table>
                         </div>
                     </div>
@@ -94,7 +58,9 @@ include_once 'app/core/Database.php';
         </div>
     </div>
     <script src="../../../public/js/premiumartists.js"></script>
-    <script>getPremiumArtistList()</script>
+    <script>
+        getPremiumArtistList(<?php echo $_SESSION['user_id'] ?>)
+    </script>
 </body>
 
 </html>
