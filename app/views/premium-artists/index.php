@@ -30,7 +30,7 @@ include_once 'app/core/Database.php';
 
             <div class="homepage-container">
                 <nav class="profile-navbar">
-                    <h1 class="user"> Hello, <h2 class="username"><?php echo (isset($_SESSION['is_admin']) ? $_SESSION['username'] : "Guest");?> </h2> <i class="fa fa-user"></i> </h1>
+                    <h1 class="user"> Hello, <h2 class="username"><?php echo (isset($_SESSION['is_admin']) ? $_SESSION['username'] : "Guest"); ?> </h2> <i class="fa fa-user"></i> </h1>
                 </nav>
 
                 <div class="song-container">
@@ -46,58 +46,10 @@ include_once 'app/core/Database.php';
                                         <th></th>
                                     </tr>
                                 </thead>
-                               
+
                                 <tbody id="artists-table-body">
-                                    <tr>
-                                        <td id="creator-id">1</td>
-                                        <td id="susbcription-status">Artist 1</td>
-                                        <!-- <td><button class="subscribe-btn">Subscribe</button></td> -->
-                                    </tr>
+
                                 </tbody>
-                                
-                                <!-- <tr id="subscription-status"></tr> -->
-
-                                <?php
-                                    $subscriber_id = $data['subscriber_id'];
-                                    $db = new Database;
-                                    $query = "SELECT * FROM subscription WHERE subscriber_id = " . $subscriber_id;
-                                    $db->query($query);
-                                    $subscriber = $db->resultSet();
-
-                                    if($subscriber){
-                                        foreach($subscriber as $sub){
-                                            echo "<tr>";
-                                            echo "<td>".$sub['creator_id']."</td>";
-                                            echo "<td>".$sub['subscription_status']."</td>";
-                                            echo "</tr>";
-                                        }
-                                    } else {
-                                        echo "<tr>";
-                                        echo "<td> No subscriptions </td>";
-                                        echo "</tr>";
-                                    }
-
-                                    // foreach ($subscribers as $subscriber) {
-                                    //     $status = $subscriber['status'];
-                                    //     $creator_id = $subscriber['creator'];
-
-                                    //     echo "
-                                    //     <tr>
-                                    //         <td>$creator_id</td>
-                                    //         <td>$status</td>
-                                    //     "
-
-                                    // }
-                                ?>
-                                <!-- <tbody>
-                                    <tr>
-                                        <th id="artist-no">1</th>
-                                        <th id="artist-name">Loading artists...</th>
-                                        <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr>
-                                </tbody> -->
-                        
-                                
                             </table>
                         </div>
                     </div>
@@ -106,9 +58,8 @@ include_once 'app/core/Database.php';
         </div>
     </div>
     <script src="../../../public/js/premiumartists.js"></script>
-    <script>getPremiumArtistList()</script>
     <script>
-        getSubscriptionStatus(<?php echo $data['subscriber_id'] ?>);
+        getPremiumArtistList(<?php echo $_SESSION['user_id'] ?>)
     </script>
 </body>
 

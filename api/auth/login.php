@@ -22,6 +22,7 @@ if (isset($_POST['username'])) {
     if (password_verify($password, $result['password'])) {
       $_SESSION['username'] = $username;
       $_SESSION['is_admin'] = $result['is_admin'] ? 1 : 0;
+      $_SESSION['user_id'] = $result['user_id'];
       header('Location: ../../?home');
     } else {
       $_SESSION['error'] = "Invalid username or password";

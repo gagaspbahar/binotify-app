@@ -8,6 +8,7 @@ $subscription_model = new SubscriptionModel();
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $subscription = $subscription_model->getSubscriptionBySubscriberId($id);
+
   if ($subscription != null) {
     http_response_code(200);
     echo json_encode($subscription);
