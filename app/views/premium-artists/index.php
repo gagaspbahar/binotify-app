@@ -46,46 +46,58 @@ include_once 'app/core/Database.php';
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                               
+                                <tbody id="artists-table-body">
+                                    <tr>
+                                        <td id="creator-id">1</td>
+                                        <td id="susbcription-status">Artist 1</td>
+                                        <!-- <td><button class="subscribe-btn">Subscribe</button></td> -->
+                                    </tr>
+                                </tbody>
+                                
+                                <!-- <tr id="subscription-status"></tr> -->
+
+                                <?php
+                                    $subscriber_id = $data['subscriber_id'];
+                                    $db = new Database;
+                                    $query = "SELECT * FROM subscription WHERE subscriber_id = " . $subscriber_id;
+                                    $db->query($query);
+                                    $subscriber = $db->resultSet();
+
+                                    if($subscriber){
+                                        foreach($subscriber as $sub){
+                                            echo "<tr>";
+                                            echo "<td>".$sub['creator_id']."</td>";
+                                            echo "<td>".$sub['subscription_status']."</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr>";
+                                        echo "<td> No subscriptions </td>";
+                                        echo "</tr>";
+                                    }
+
+                                    // foreach ($subscribers as $subscriber) {
+                                    //     $status = $subscriber['status'];
+                                    //     $creator_id = $subscriber['creator'];
+
+                                    //     echo "
+                                    //     <tr>
+                                    //         <td>$creator_id</td>
+                                    //         <td>$status</td>
+                                    //     "
+
+                                    // }
+                                ?>
+                                <!-- <tbody>
                                     <tr>
                                         <th id="artist-no">1</th>
                                         <th id="artist-name">Loading artists...</th>
                                         <th><button class="button subscribe-button">Subscribe</button></th>
                                     </tr>
-                                    <!-- <tr>
-                                        <th>2</th>
-                                        <th>keshi</th>
-                                        <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <th>Tulus</th>
-                                        <th><a class="button listen-button" href='/?premiumsongs'>Listen Now</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>4</th>
-                                        <th>Yura Yunita</th>
-                                        <th><button class="button subscribe-button">Subscribe</button></th>
-                                    </tr> -->
-                                </tbody>
-                                <!-- <?php
-                                $db = new Database;
-                                $query = "SELECT * FROM users";
-                                $db->query($query);
-                                $users = $db->resultSet();
-                                $count = 1;
-                                foreach ($users as $user) {
-                                    echo "  <tbody>
-                                                        <tr>
-                                                            <td> $count. </td>
-                                                            <td> $user[username] </td>
-                                                            <td>$user[email] </td>
-                                                        </tr>
-                                                    </tbody>
-                                                ";
-                                    $count++;
-                                }
-                                ?> -->
+                                </tbody> -->
+                        
+                                
                             </table>
                         </div>
                     </div>
@@ -95,6 +107,9 @@ include_once 'app/core/Database.php';
     </div>
     <script src="../../../public/js/premiumartists.js"></script>
     <script>getPremiumArtistList()</script>
+    <script>
+        getSubscriptionStatus(<?php echo $data['subscriber_id'] ?>);
+    </script>
 </body>
 
 </html>
