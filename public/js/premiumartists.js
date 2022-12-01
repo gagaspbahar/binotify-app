@@ -136,10 +136,10 @@ const subscribe = (subscriber_id, creator_id) => {
 
   xhr.onload = function () {
     if (this.status == 200) {
-      alert("Berhasil subscribe");
+      alert("Berhasil request subscribe");
       location.reload();
     } else {
-      alert("Gagal subscribe");
+      alert("Gagal request subscribe");
     }
   };
   xhr.send(JSON.stringify(params));
