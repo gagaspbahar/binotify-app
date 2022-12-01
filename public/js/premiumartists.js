@@ -95,13 +95,17 @@ const getSubscriptionStatus = (id, path) => {
               if (data.status == "ACCEPTED") {
                 // listen
                 artist.flag = 1;
-              } else {
+              } else if (data.status == "PENDING") {
                 // pending
                 artist.flag = 2;
                 artist.status = data.status;
+              } else {
+                // reject
+                artist.flag = 3;
+                artist.status = data.status;
               }
             } else {
-              if (artist.flag != 1 && artist.flag != 2) {
+              if (artist.flag != 1 && artist.flag != 2 && artist.flag != 3) {
                 // subscribe
                 artist.flag = 0;
               }
@@ -125,7 +129,20 @@ const getSubscriptionStatus = (id, path) => {
                     </tr>
                 `;
             count++;
-          } else {
+          } else if (artist.flag == 3) {
+            // TODO: Ganti disini, ini rejected
+            artistList.innerHTML += `
+                    <tr>
+                        <th id="artist-no">${count}</th>
+                        <th id="artist-name">${artist.name}</th>
+                        <th><button class="button rejected-button" id="rejected-button" disabled=true>${artist.status}</button></th>
+                    </tr>
+                `;
+            count++;
+          } 
+          
+          
+          else {
             artistList.innerHTML += `
                     <tr>
                         <th id="artist-no">${count}</th>
