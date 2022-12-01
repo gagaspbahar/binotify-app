@@ -18,6 +18,7 @@
     </head>
 
     <body>
+        <?php echo $data['path'] ?>
         <div class="main-contaner">
             <div class="homepage">
                 <div class="side-navbar-container">
@@ -43,7 +44,7 @@
                     </nav>
 
                     <div class="song-container">
-                        <h1 class="title"> Songs by Tulus </h1>
+                        <h1 class="title" id="header-title"> Loading... </h1>
                         <div class="songlist-container">
 
                             <ul class="songlist">
@@ -61,8 +62,8 @@
 
                             </ul>
                         </div>
-                        <button class="previous-button" type="button" onclick=prevPage()><i class="fa fa-angle-left"></i></button>
-                        <button type="button" class="next-button" onclick=nextPage()><i class="fa fa-angle-right"></i></button>
+                        <button class="previous-button" type="button" onclick=prevPage(<?php echo $_SESSION['user_id']?>)><i class="fa fa-angle-left"></i></button>
+                        <button type="button" class="next-button" onclick=nextPage(<?php echo $_SESSION['user_id']?>)><i class="fa fa-angle-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -74,7 +75,7 @@
                    
                             <div class="trackInfo">
                                 <span class="trackName pointer">
-                                    <p class="song-track-title"> No Song Chosen.. </p>
+                                    <p class="song-track-title" id="song-track-title"> No Song Chosen.. </p>
                                 </span>
                             </div>
                         </div>
@@ -92,11 +93,11 @@
                                     <i class="fas fa-step-backward"></i>
                                 </button>
 
-                                <button class="controlButton play" title="Play" onclick="playSong();">
+                                <button class="controlButton play" title="Play" onclick="sp.play();">
                                     <img src="../../../public/img/play.png" alt="Play">
                                 </button>
 
-                                <button class="controlButton pause" title="Pause" onclick="pauseSong();">
+                                <button class="controlButton pause" title="Pause" onclick="sp.pause();">
                                     <img src="../../../public/img/pause.png" alt="Pause">
                                 </button>
 
@@ -137,7 +138,7 @@
 
         <script src="../../../public/js/premiumsongs.js"></script>
         <script>
-            getPremiumSongs(<?php echo $_SESSION['user_id']?>);
+            getPremiumSongs(<?php echo $_SESSION['user_id']?>, "<?php echo $data['path']?>");
             // getSongDetail(<?php echo $data['id'] ?>);
         </script>
     </body>

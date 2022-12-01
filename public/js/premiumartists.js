@@ -62,9 +62,8 @@ const getPremiumArtistList = (id) => {
 };
 
 const getSubscriptionStatus = (id, path) => {
-  console.log("test")
   const xhrToRest = new XMLHttpRequest();
-  window.history.pushState("", "","/?premiumartists" + path);
+  window.history.replaceState("", "","/?premiumartists" + path);
   
   let artists = [];
   xhrToRest.open("GET", `http://localhost:8080/api/artist${path.replace("&", "?")}`, true);
@@ -85,7 +84,6 @@ const getSubscriptionStatus = (id, path) => {
     xhr.onload = function () {
       if (this.status == 200) {
         let artistList = document.getElementById("artists-table-body");
-        console.log(artistList);
         artistList.innerHTML = "";
 
         let count = 1;
