@@ -4,10 +4,18 @@ let pauseButton = document.querySelector(".pause");
 let track = document.createElement("audio");
 track.src = "../../../public/song/keshi - beside you.mp3";
 
+// function playSong(tracksrc) {
+//     let track = document.createElement("audio");
+//     track.src = tracksrc;
+//     track.play();
+//     playButton.style.display = "none";
+//     pauseButton.style.display = "inline";
+// }
+
 function playSong() {
-    track.play();
-    playButton.style.display = "none";
-    pauseButton.style.display = "inline";
+  track.play();
+  playButton.style.display = "none";
+  pauseButton.style.display = "inline";
 }
 
 function pauseSong() {
@@ -55,12 +63,9 @@ function getArtistsId () {
 
 const getPremiumSongs = (user_id) => {
     let artist_id = getArtistsId();
-    console.log(artist_id);
 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:8080/api/artist/song/"+artist_id+"?user_id="+user_id+"&page=1", true);
-    // xhr.open("GET", "http://localhost:8080/api/artist/song/2?user_id=6&page=1", true);
-    console.log(user_id);
     try {
         document.getElementById("universal-loading").innerHTML = "Loading...";
     } catch {
@@ -86,13 +91,10 @@ const getPremiumSongs = (user_id) => {
 
             let count = 1;
             songs.forEach((song) => {
-                const xhr2 = new XMLHttpRequest();
-                xhr2.open("GET", "http://localhost:8080"+song.audio_path, true);
-                xhr2.onload = function () {
-                    track.src = this.responseText;
-                }
-                xhr2.send();
-                // console.log(song.audio_path)
+            
+                track.src = "http://localhost:8080"+song.audio_path;
+                console.log(track.src) ;
+                console.log(song.audio_path)
                 songList.innerHTML += `
                 <li class='songlist-row'>
                     <div class='song-count'>
@@ -130,26 +132,26 @@ const getPremiumSongs = (user_id) => {
 }
 
 function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split("=");
-      if (decodeURIComponent(pair[0]) == variable) {
-        return decodeURIComponent(pair[1]);
-      }
-    }
-    console.log("Query variable %s not found", variable);
-  }
-  
-  function updateQueryStringParameter(uri, key, value) {
-    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-    var separator = uri.indexOf("?") !== -1 ? "&" : "?";
-    if (uri.match(re)) {
-      return uri.replace(re, "$1" + key + "=" + value + "$2");
-    } else {
-      return uri + separator + key + "=" + value;
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
     }
   }
+  console.log("Query variable %s not found", variable);
+}
+
+function updateQueryStringParameter(uri, key, value) {
+  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, "$1" + key + "=" + value + "$2");
+  } else {
+    return uri + separator + key + "=" + value;
+  }
+}
 
 const prevPage = () => {
     let newPage = parseInt(getQueryVariable("page")) - 1;

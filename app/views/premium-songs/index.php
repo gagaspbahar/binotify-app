@@ -44,10 +44,6 @@
 
                     <div class="song-container">
                         <h1 class="title"> Songs by Tulus </h1>
-
-                        <button class="previous-button" type="button" onclick=prevPage()><i class="fa fa-angle-left"></i></button>
-                        <button type="button" class="next-button" onclick=nextPage()><i class="fa fa-angle-right"></i></button>
-
                         <div class="songlist-container">
 
                             <ul class="songlist">
@@ -59,16 +55,14 @@
                                     <div class='song-info'>
                                         <span class='song-title'> Title </span>
                                     </div>
-
-                                    <div class='trackOptions'>
-                                        <!-- <img class='optionButton' src='../../../public/img/more.png'> -->
-                                    </div>
                                 </li>
 
                                 <div id="songlist"></div>
 
                             </ul>
                         </div>
+                        <button class="previous-button" type="button" onclick=prevPage()><i class="fa fa-angle-left"></i></button>
+                        <button type="button" class="next-button" onclick=nextPage()><i class="fa fa-angle-right"></i></button>
                     </div>
                 </div>
             </div>
