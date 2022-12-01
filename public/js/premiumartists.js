@@ -1,3 +1,25 @@
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
+    }
+  }
+  console.log("Query variable %s not found", variable);
+}
+
+function updateQueryStringParameter(uri, key, value) {
+  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, "$1" + key + "=" + value + "$2");
+  } else {
+    return uri + separator + key + "=" + value;
+  }
+}
+
 const getPremiumArtistList = (id) => {
   const xhr = new XMLHttpRequest();
   xhr.open("GET", "http://localhost:8080/api/artist?page=1", true);
@@ -36,13 +58,16 @@ const getPremiumArtistList = (id) => {
     }
   };
   xhr.send();
-  getSubscriptionStatus(id);
+  getSubscriptionStatus(id, page);
 };
 
-const getSubscriptionStatus = (id) => {
+const getSubscriptionStatus = (id, path) => {
+  console.log("test")
   const xhrToRest = new XMLHttpRequest();
+  window.history.pushState("", "","/?premiumartists" + path);
+  
   let artists = [];
-  xhrToRest.open("GET", "http://localhost:8080/api/artist?page=1", true);
+  xhrToRest.open("GET", `http://localhost:8080/api/artist${path.replace("&", "?")}`, true);
   xhrToRest.onload = function () {
     if (this.status == 200) {
       let response = JSON.parse(this.responseText);
@@ -143,4 +168,30 @@ const subscribe = (subscriber_id, creator_id) => {
     }
   };
   xhr.send(JSON.stringify(params));
+};
+
+const prevPage = (id) => {
+  let newPage = parseInt(getQueryVariable("page")) - 1;
+  if (newPage == 0) {
+    newPage = 1;
+  }
+
+  const link = updateQueryStringParameter(
+    window.location.href,
+    "page",
+    newPage
+  );
+
+  getSubscriptionStatus(id, "&" + link.split("&")[1]);
+};
+
+const nextPage = (id) => {
+  let newPage = parseInt(getQueryVariable("page")) + 1;
+  const link = updateQueryStringParameter(
+    window.location.href,
+    "page",
+    newPage
+  );
+  console.log(link.split("&")[1])
+  getSubscriptionStatus(id, "&" + link.split("&")[1]);
 };

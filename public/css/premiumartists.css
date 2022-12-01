@@ -119,3 +119,21 @@ td {
 .subscribe-button:hover {
     background-color: #FF0052;
 }
+
+.previous-button, .next-button {
+  background-color: #121212;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 15px;
+  border-radius: 50%;
+  font-size: 25px;
+  border-style: none;
+  margin-top: 15px;
+}
+
+.previous-button:hover, .next-button:hover {
+  background-color: #2a2626;
+  color: white;
+  /* box-shadow: 3px 1px 1px black; */
+}

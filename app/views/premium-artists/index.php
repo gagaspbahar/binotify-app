@@ -52,6 +52,8 @@ include_once 'app/core/Database.php';
                                 </tbody>
                             </table>
                         </div>
+                        <button class="previous-button" type="button" onclick=prevPage(<?php echo $_SESSION['user_id'] ?>)><i class="fa fa-angle-left"></i></button>
+                        <button type="button" class="next-button" onclick=nextPage(<?php echo $_SESSION['user_id'] ?>)><i class="fa fa-angle-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -59,7 +61,7 @@ include_once 'app/core/Database.php';
     </div>
     <script src="../../../public/js/premiumartists.js"></script>
     <script>
-        getPremiumArtistList(<?php echo $_SESSION['user_id'] ?>)
+        getSubscriptionStatus(<?php echo $_SESSION['user_id'] ?>, "<?php echo $data['path']?>");
     </script>
 </body>
 
