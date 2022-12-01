@@ -12,47 +12,6 @@ track.src = "../../../public/song/keshi - beside you.mp3";
 //     pauseButton.style.display = "inline";
 // }
 
-function playSong() {
-  track.play();
-  playButton.style.display = "none";
-  pauseButton.style.display = "inline";
-}
-
-function pauseSong() {
-  track.pause();
-  playButton.style.display = "inline";
-  pauseButton.style.display = "none";
-}
-
-let currentStart = document.getElementById("currentStart");
-let currentEnd = document.getElementById("currentEnd");
-let seek = document.getElementById("seek");
-
-track.addEventListener("timeupdate", () => {
-  let music_curr = track.currentTime;
-  let music_dur = track.duration;
-
-  let min = Math.floor(music_dur / 60);
-  let sec = Math.floor(music_dur % 60);
-  if (sec < 10) {
-    sec = `0${sec}`;
-  }
-  currentEnd.innerText = `${min}:${sec}`;
-
-  let min1 = Math.floor(music_curr / 60);
-  let sec1 = Math.floor(music_curr % 60);
-  if (sec1 < 10) {
-    sec1 = `0${sec1}`;
-  }
-  currentStart.innerText = `${min1}:${sec1}`;
-
-  let progressbar = parseInt((track.currentTime / track.duration) * 100);
-  seek.value = progressbar;
-});
-
-seek.addEventListener("change", () => {
-  track.currentTime = (seek.value * track.duration) / 100;
-});
 
 function getParams() {
   let url = window.location.href;
@@ -210,6 +169,7 @@ class SongPlayer {
     this.pauseButton = document.querySelector(".pause");
     this.currentStart = document.getElementById("currentStart");
     this.currentEnd = document.getElementById("currentEnd");
+    this.currentEnd.innerText = "0:00";
     this.seek = document.getElementById("seek");
     this.title = document.getElementById("song-track-title");
   }
@@ -228,7 +188,8 @@ class SongPlayer {
       if (sec < 10) {
         sec = `0${sec}`;
       }
-      this.currentEnd.innerText = `${min}:${sec}`;
+      
+      min && sec ? (this.currentEnd.innerText = `${min}:${sec}`) : "0:00";
 
       let min1 = Math.floor(music_curr / 60);
       let sec1 = Math.floor(music_curr % 60);

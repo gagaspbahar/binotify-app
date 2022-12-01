@@ -18,7 +18,6 @@
     </head>
 
     <body>
-        <?php echo $data['path'] ?>
         <div class="main-contaner">
             <div class="homepage">
                 <div class="side-navbar-container">
