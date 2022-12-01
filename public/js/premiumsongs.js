@@ -30,7 +30,6 @@ const getPremiumSongs = (user_id, path) => {
   xhrArtist.onload = function () {
     if (this.status == 200) {
       const artist = JSON.parse(this.responseText);
-      console.log(artist.data.name)
       headerTitle.innerText = "Songs by " + artist.data.name;
     }
   }

@@ -56,7 +56,6 @@ const searchSong = (data = "") => {
   }
 
   if (!final_url.includes("page=")) {
-    console.log("masuk");
     final_url += "&page=1";
     add_url += "&page=1";
   }

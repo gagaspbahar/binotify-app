@@ -13,9 +13,9 @@ class App {
       $this->controller = 'login';
     }
     else {
-      // var_dump($url);
-      if (file_exists('app/controllers/' . $url[0] . '.php')) {
-        $this->controller = $url[0];
+      $path = explode("&", $url[0])[0];
+      if (file_exists('app/controllers/' . $path . '.php')) {
+        $this->controller = $path;
         unset($url[0]);
       }
       else if ($url[0] == '') {

@@ -1,5 +1,4 @@
 const saveChanges = () => {
-  console.log("kepanggil");
   const title = document.getElementById("input-title").value;
   const genre = document.getElementById("input-genre").value;
   const date = document.getElementById("input-date").value;
@@ -34,7 +33,6 @@ const saveChanges = () => {
   };
   xhr.onload = () => {
     if (xhr.status === 200) {
-      console.log("success");
       window.location.href = "/?song/" + song_id;
       alert("Edit song sukses :D");
     } else {

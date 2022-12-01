@@ -43,7 +43,6 @@ const getPremiumArtistList = (id) => {
       let count = 1;
 
       artists.forEach((artist) => {
-        console.log(artist.user_id);
         artistList.innerHTML += `
                     <tr>
                         <th id="artist-no">${count}</th>
@@ -156,7 +155,6 @@ const getSubscriptionStatus = (id, path) => {
       } else {
         alert("Gagal mengambil data");
       }
-      console.log(artists);
     };
     xhr.send();
   };
@@ -207,6 +205,5 @@ const nextPage = (id) => {
     "page",
     newPage
   );
-  console.log(link.split("&")[1])
   getSubscriptionStatus(id, "&" + link.split("&")[1]);
 };

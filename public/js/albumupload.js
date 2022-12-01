@@ -1,5 +1,4 @@
 const submitForm = () => {
-  console.log("kepanggil")
   const title = document.getElementById("input-title").value;
   const artist = document.getElementById("input-artist").value;
   const genre = document.getElementById("input-genre").value;
