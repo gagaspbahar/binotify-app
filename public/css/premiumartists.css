@@ -113,11 +113,15 @@ td {
 }
 
 .rejected-button {
-  background-color: #1DB954;
+  background-color: #FF0052;
+}
+
+.pending-button {
+  background-color: #dede46;
 }
 
 .subscribe-button:hover {
-    background-color: #FF0052;
+    background-color: #1DB954;
 }
 
 .previous-button, .next-button {
@@ -135,5 +139,5 @@ td {
 .previous-button:hover, .next-button:hover {
   background-color: #2a2626;
   color: white;
-  /* box-shadow: 3px 1px 1px black; */
+  cursor: pointer;
 }

@@ -4,15 +4,6 @@ let pauseButton = document.querySelector(".pause");
 let track = document.createElement("audio");
 track.src = "../../../public/song/keshi - beside you.mp3";
 
-// function playSong(tracksrc) {
-//     let track = document.createElement("audio");
-//     track.src = tracksrc;
-//     track.play();
-//     playButton.style.display = "none";
-//     pauseButton.style.display = "inline";
-// }
-
-
 function getParams() {
   let url = window.location.href;
   let urlSplit = url.split("/");
@@ -74,17 +65,15 @@ const getPremiumSongs = (user_id, path) => {
         songList.innerHTML += `
                 <li class='songlist-row'>
                     <div class='song-count'>
-
                         <button class='controlButton play list' title='Play' onclick='
                         sp.setTrack("${track.src}", "${song.title}");
                         sp.play();'>
-                            <img src='../../../public/img/play-white.png'>
+                            <img class='play' src='../../../public/img/play-white.png'>
                         </button>
 
                         <button class='controlButton pause list' title='Pause' onclick='sp.pause();'>
                             <img src='../../../public/img/pause-white.png'>
                         </button>
-                        
                         <span class='song-number'> ${count}</span>
                     </div>
 

@@ -124,12 +124,11 @@ const getSubscriptionStatus = (id, path) => {
                     <tr>
                         <th id="artist-no">${count}</th>
                         <th id="artist-name">${artist.name}</th>
-                        <th><button class="button rejected-button" id="rejected-button" disabled=true>${artist.status}</button></th>
+                        <th><button class="button pending-button" id="pending-button" disabled=true>${artist.status}</button></th>
                     </tr>
                 `;
             count++;
           } else if (artist.flag == 3) {
-            // TODO: Ganti disini, ini rejected
             artistList.innerHTML += `
                     <tr>
                         <th id="artist-no">${count}</th>

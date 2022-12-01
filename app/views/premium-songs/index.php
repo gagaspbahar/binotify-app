@@ -58,11 +58,13 @@
                                 </li>
 
                                 <div id="songlist"></div>
+                                <button class="previous-button" type="button" onclick=prevPage(<?php echo $_SESSION['user_id']?>)><i class="fa fa-angle-left"></i></button>
+                                <button type="button" class="next-button" onclick=nextPage(<?php echo $_SESSION['user_id']?>)><i class="fa fa-angle-right"></i></button>
 
                             </ul>
+                            
                         </div>
-                        <button class="previous-button" type="button" onclick=prevPage(<?php echo $_SESSION['user_id']?>)><i class="fa fa-angle-left"></i></button>
-                        <button type="button" class="next-button" onclick=nextPage(<?php echo $_SESSION['user_id']?>)><i class="fa fa-angle-right"></i></button>
+                        
                     </div>
                 </div>
             </div>
@@ -138,7 +140,6 @@
         <script src="../../../public/js/premiumsongs.js"></script>
         <script>
             getPremiumSongs(<?php echo $_SESSION['user_id']?>, "<?php echo $data['path']?>");
-            // getSongDetail(<?php echo $data['id'] ?>);
         </script>
     </body>
 </html>

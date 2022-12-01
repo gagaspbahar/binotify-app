@@ -11,7 +11,6 @@
 
 .homepage {
   background-color: #212121;
-  /* height: 100vh; */
   min-height: 140vh;
   display: flex;
   overflow: hidden;
@@ -326,10 +325,8 @@ a.detail:hover {
   height: 20px;
 }
 
-
 #song-player-bar .fas{
   color: #b3b3b3;
-  /* height: 5px; */
   padding-right: 12px;
   padding-left: 12px;
   cursor: pointer;
@@ -338,7 +335,6 @@ a.detail:hover {
 #song-player-bar .fas:hover{
   color: white;
 }
-
 
 .pause {
   display: none;
@@ -589,4 +585,6 @@ a.detail:hover {
 .previous-button:hover, .next-button:hover {
   background-color: #2a2626;
   color: white;
+  cursor: pointer;
+  /* box-shadow: 3px 1px 1px black; */
 }
