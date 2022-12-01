@@ -137,9 +137,9 @@
             </div>
         </div>
 
-        <script src="../../../public/js/premiumsongs.js"></script>
+        <script src="../../../public/js/premsonglist.js"></script>
         <script>
-            getPremiumSongs(<?php echo $_SESSION['user_id']?>, "<?php echo $data['path']?>");
+            getAllPremiumSongs(<?php echo $_SESSION['user_id']?>, "<?php echo $data['path']?>");
         </script>
     </body>
 </html>

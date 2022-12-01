@@ -65,6 +65,15 @@ const getSubscriptionStatus = (id, path) => {
   window.history.replaceState("", "","/?premiumartists" + path);
   
   let artists = [];
+
+  xhrToRest.onreadystatechange = function () {
+    if (xhrToRest.readyState == 4 && xhrToRest.status == 200) {
+      // document.getElementById("universal-loading").innerHTML = "";
+    } else {
+      document.getElementById("universal-loading").innerHTML = "Loading...";
+    }
+  };
+
   xhrToRest.open("GET", `http://localhost:8080/api/artist${path.replace("&", "?")}`, true);
   xhrToRest.onload = function () {
     if (this.status == 200) {
@@ -79,6 +88,14 @@ const getSubscriptionStatus = (id, path) => {
       `../../api/subscription/subscriptionstatus.php?id=${id}`,
       true
     );
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        document.getElementById("universal-loading").innerHTML = "";
+      } else {
+        document.getElementById("universal-loading").innerHTML = "Loading...";
+      }
+    };
 
     xhr.onload = function () {
       if (this.status == 200) {
