@@ -174,7 +174,7 @@ const getSubscriptionStatus = (id, path, mode=1) => {
                     <tr>
                         <th id="artist-no">${count}</th>
                         <th id="artist-name">${artist.name}</th>
-                        <th><button class="button rejected-button" id="rejected-button" disabled=true>${artist.status}</button></th>
+                        <th><button class="button rejected-button" id="rejected-button"  onClick="resubscribe(${id}, ${artist.user_id});">Resubscribe</button></th>
                     </tr>
                 `;
             count++;
@@ -204,6 +204,26 @@ const getSubscriptionStatus = (id, path, mode=1) => {
 };
 
 
+const resubscribe = (subscriber_id, creator_id) => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("PUT", `http://localhost:8080/api/resubscribe`, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  const params = {
+    subscriber_id: subscriber_id,
+    creator_id: creator_id,
+  };
+
+  xhr.onload = function () {
+    if (this.status == 200) {
+      alert("Berhasil request resubscribe");
+      location.reload();
+    } else {
+      alert("Gagal request resubscribe");
+    }
+  };
+  xhr.send(JSON.stringify(params));
+}
 
 const subscribe = (subscriber_id, creator_id) => {
   const xhr = new XMLHttpRequest();
