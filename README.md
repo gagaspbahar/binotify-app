@@ -35,57 +35,58 @@ Pindahkan isi dari repository ini ke htdocs pada XAMPP. Konfigurasi database dap
 
 ### Register Page
 
-![](screenshots/20221028144314.png)  
+![](screenshots/20221028144314.png)
 
 ### Home Page
 
-![](screenshots/20221028144337.png)  
+![](screenshots/20221028144337.png)
 
 ### Search, Sort, Filter Page
 
-![](screenshots/20221028144543.png)  
+![](screenshots/20221028144543.png)
 
 ### Daftar Album Page
 
-![](screenshots/20221028144604.png)  
+![](screenshots/20221028144604.png)
 
 ### Detail Album Page
 
-![](screenshots/20221028144626.png)  
+![](screenshots/20221028144626.png)
 
 ### Detail Lagu Page
 
-![](screenshots/20221028144700.png)  
+![](screenshots/20221028144700.png)
 
 ### Edit Album
 
-![](screenshots/20221028144756.png)  
+![](screenshots/20221028144756.png)
 
-![](screenshots/20221028144822.png)  
+![](screenshots/20221028144822.png)
 
-![](screenshots/20221028144848.png)  
+![](screenshots/20221028144848.png)
 
 ### Edit Lagu
 
-![](screenshots/20221028144935.png)  
+![](screenshots/20221028144935.png)
 
 ### Tambah Album
 
-![](screenshots/20221028144949.png)  
+![](screenshots/20221028144949.png)
 
 ### Tambah Lagu
 
-![](screenshots/20221028145002.png)  
+![](screenshots/20221028145002.png)
 
 ### Daftar User
 
-![](screenshots/20221028145102.png)  
+![](screenshots/20221028145102.png)
 
 ### 404 Page
 
-![](screenshots/20221028145125.png)  
+![](screenshots/20221028145125.png)
 
 # Pembagian tugas
+
 ## Frontend / Client-side
 
 1. Login: 13520016, 13520073
@@ -121,3 +122,15 @@ Pindahkan isi dari repository ini ke htdocs pada XAMPP. Konfigurasi database dap
 11. Tambah Lagu: 13520016
 12. Daftar User: 13520073
 13. Initial Project, Database & Docker Setup: 13520016
+
+# New Feature
+
+## Frontend / Client-side
+
+1. List Premium Artist: 13520073
+2. List Premium Songs by Artist: 13520073
+3. List All Premium Songs (Bonus for UX): 13520073
+
+## Backend / Server-side
+
+1.
