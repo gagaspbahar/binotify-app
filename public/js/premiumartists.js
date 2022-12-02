@@ -60,7 +60,27 @@ const getPremiumArtistList = (id) => {
   getSubscriptionStatus(id, page);
 };
 
-const getSubscriptionStatus = (id, path) => {
+const updateSubscription = (id) => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `../../api/subscription/check.php?id=${id}`, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  xhr.onload = function () {
+    if (this.status == 200) {
+      console.log("Berhasil update subscription");
+    } else {
+      console.log("Gagal update subscription");
+    }
+  };
+  xhr.send();
+}
+
+const getSubscriptionStatus = (id, path, mode=1) => {
+  const refresh = () => {
+    updateSubscription(id)
+    setTimeout(refresh, 5000)
+  }
+
   const xhrToRest = new XMLHttpRequest();
   window.history.replaceState("", "","/?premiumartists" + path);
   
@@ -83,9 +103,11 @@ const getSubscriptionStatus = (id, path) => {
       alert("Gagal mengambil data");
     }
     const xhr = new XMLHttpRequest();
+
+    const subUrl = `../../api/subscription/subscriptionstatus.php?id=${id}`
     xhr.open(
       "GET",
-      `../../api/subscription/subscriptionstatus.php?id=${id}`,
+      subUrl,
       true
     );
 
@@ -104,6 +126,8 @@ const getSubscriptionStatus = (id, path) => {
 
         let count = 1;
         let response = JSON.parse(this.responseText);
+        // response = mode == 1 ? response : response.data
+        // console.log(response)
 
         artists.forEach((artist) => {
           response.forEach((data) => {
@@ -168,6 +192,7 @@ const getSubscriptionStatus = (id, path) => {
             count++;
           }
         });
+        refresh()
       } else {
         alert("Gagal mengambil data");
       }
@@ -177,6 +202,8 @@ const getSubscriptionStatus = (id, path) => {
 
   xhrToRest.send();
 };
+
+
 
 const subscribe = (subscriber_id, creator_id) => {
   const xhr = new XMLHttpRequest();

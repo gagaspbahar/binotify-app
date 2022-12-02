@@ -1,7 +1,9 @@
 <?php
 
 require_once '../../config/config.php';
+require_once '../../app/models/Subscription.php';
 
+$subscription_model = new SubscriptionModel();
 
 if (isset($_GET['id'])) {
   if (isset($_ENV['SOAP_URL'])) {
@@ -43,6 +45,12 @@ if (isset($_GET['id'])) {
   }
   $response1 = str_replace('<?xml version=\'1.0\' encoding=\'UTF-8\'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:getAllSubscriptionRequestBySubscriberResponse xmlns:ns2="http://service.binotify.com/"><return>',"",$response);
   $response2 = str_replace("</return></ns2:getAllSubscriptionRequestBySubscriberResponse></S:Body></S:Envelope>","",$response1);
-  // echo $parser;
-  echo $response2;
+  $obj = json_decode($response2);
+  $data = $obj->data;
+  $row_count = 0;
+  for ($i = 0; $i < count($data); $i++) {
+    $row_count += $subscription_model->upsertSubscription($data[$i]->creator_id, $data[$i]->subscriber_id, $data[$i]->status);
+  }
+  http_response_code(200);
+  echo json_encode($row_count);
 }

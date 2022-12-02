@@ -54,4 +54,17 @@ class SubscriptionModel {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function upsertSubscription($creator, $subscriber, $status) {
+        $rowCount = $this->updateSubscription($creator, $subscriber, $status);
+        if ($rowCount == 0) {
+            $this->db->query('INSERT INTO ' . $this->table . ' (creator_id, subscriber_id, status) VALUES (:creator_id, :subscriber_id, :status)');
+            $this->db->bind('creator_id', $creator);
+            $this->db->bind('subscriber_id', $subscriber);
+            $this->db->bind('status', $status);
+            $this->db->execute();
+            $rowCount = $this->db->rowCount();
+        }
+        return $rowCount;
+    }
 }
