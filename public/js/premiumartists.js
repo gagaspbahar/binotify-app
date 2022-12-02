@@ -214,6 +214,14 @@ const resubscribe = (subscriber_id, creator_id) => {
     creator_id: creator_id,
   };
 
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("universal-loading").innerHTML = "";
+    } else {
+      document.getElementById("universal-loading").innerHTML = "Loading...";
+    }
+  };
+
   xhr.onload = function () {
     if (this.status == 200) {
       alert("Berhasil request resubscribe");
@@ -233,6 +241,14 @@ const subscribe = (subscriber_id, creator_id) => {
   const params = {
     subscriber_id: subscriber_id,
     creator_id: creator_id,
+  };
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("universal-loading").innerHTML = "";
+    } else {
+      document.getElementById("universal-loading").innerHTML = "Loading...";
+    }
   };
 
   xhr.onload = function () {
